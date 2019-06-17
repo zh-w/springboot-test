@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wz.test.SpringbootTest.mybatis.mapper.MetricKeyMapper" >
+  <resultMap id="BaseResultMap" type="com.wz.test.SpringbootTest.mybatis.entity.MetricKey" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="metric_key" property="metricKey" jdbcType="VARCHAR" />
+    <result column="host" property="host" jdbcType="VARCHAR" />
+    <result column="algorithm" property="algorithm" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <select id="getMetricKeyByKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    *
+    from metric_key
+    where host=#{host} and metric_key = #{metricKey}
+
+  </select>
+  <insert id="insertMetricKey" useGeneratedKeys="true" keyProperty="id" parameterType="com.wz.test.SpringbootTest.mybatis.entity.MetricKey">
+    insert into metric_key(metric_key,host)
+    values(#{metricKey},#{host})
+  </insert>
+
+</mapper>
