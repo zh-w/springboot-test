@@ -20,7 +20,7 @@ public class KafkaProducer {
 
     private int num = 0;
 
-    @Scheduled(fixedRate = 20*60*1000)
+    //@Scheduled(fixedRate = 20*60*1000)
     public void send(){
 
         for (int i=0;i<2000;i++){
