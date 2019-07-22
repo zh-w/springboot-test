@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+  <bean id="beanuser" class="com.wz.test.SpringbootTest.bean.BeanUser" init-method="init" autowire="byType"/>
+
+
+  <bean id="simpleXmlBean"
+    class="com.wz.test.SpringbootTest.bean.SimpleBean"
+    scope="singleton"
+    lazy-init="default"
+    primary="true"
+    init-method="init"
+    autowire-candidate="true"
+    depends-on="">
+    <property name="age" value="22"/>
+  </bean>
+</beans>

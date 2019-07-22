@@ -3,6 +3,7 @@ package com.wz.test.SpringbootTest.config;
 import com.wz.test.SpringbootTest.kafka.MyPartitioner;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
@@ -38,6 +39,7 @@ public class KafkaConfig {
         props.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG,"earliest");
         props.put("key.deserializer", StringDeserializer.class);
         props.put("value.deserializer", StringDeserializer.class);
+        props.put(ConsumerConfig.GROUP_ID_CONFIG, UUID.randomUUID().toString());
 
         ConcurrentKafkaListenerContainerFactory<String, String> factory = new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(new DefaultKafkaConsumerFactory<String, String>(props));

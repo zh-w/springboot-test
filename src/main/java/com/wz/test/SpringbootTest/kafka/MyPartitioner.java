@@ -19,10 +19,12 @@ import org.springframework.stereotype.Component;
  * @Date: 2019-06-17 10:02
  * @Description:
  */
-@Component
+//@Component
 public class MyPartitioner implements Partitioner {
 
     private static final String TOPIC = "muti-partition-test";
+    private static final String TOPIC1 = "muti-replication-test";
+    private static final String TOPIC2 = "null-test";
 
     private static Map<String,Integer> keys = new ConcurrentHashMap<>();
 
@@ -39,7 +41,7 @@ public class MyPartitioner implements Partitioner {
 
        // System.out.println("partition.....");
 
-        int partitionNum = cluster.partitionCountForTopic(TOPIC);
+        int partitionNum = cluster.partitionCountForTopic(TOPIC2);
 
         if (partitions.size()!=partitionNum){
             synchronized (MyPartitioner.class){

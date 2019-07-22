@@ -15,7 +15,7 @@ public class CommandLineRunnerCase implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        System.out.println("CommandLineRunnerCase running.....,a:"+a);
+        //System.out.println("CommandLineRunnerCase running.....,a:"+a);
 
     }
 }
